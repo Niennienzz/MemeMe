@@ -14,24 +14,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let imagePicker = UIImagePickerController()
 
+    
     // MARK: Outlets
     
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var galleryButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     
     // MARK: UIViewController Methods
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
     }
 
+    
     // MARK: Actions
     
-    @IBAction func pickAnImage(_ sender: Any) {
-        imagePicker.allowsEditing = false
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     
     // MARK: UIImagePickerControllerDelegate Methods
     
