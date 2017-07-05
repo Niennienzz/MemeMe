@@ -55,9 +55,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func initTextFields() {
         let memeTextAttributes:[String:Any] = [
             NSStrokeColorAttributeName: UIColor.black,
-            NSForegroundColorAttributeName: UIColor.groupTableViewBackground,
+            NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName: 3.0,
+            NSStrokeWidthAttributeName: -2.0,
         ]
         self.topTextField.delegate = self.textFieldDelegate
         self.topTextField.defaultTextAttributes = memeTextAttributes
@@ -161,4 +161,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme(textTop: topTextField.text!, textBottom: buttomTextField.text!, imageOriginal: imagePickerView.image!, imageMemed: generateMemedImage())
         return meme.imageMemed
     }
+    
 }

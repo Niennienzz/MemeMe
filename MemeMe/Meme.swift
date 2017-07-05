@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Meme {
+    
     let textTop: String
     let textBottom: String
     let imageOriginal: UIImage
@@ -21,4 +22,5 @@ struct Meme {
         self.imageOriginal = imageOriginal
         self.imageMemed = imageMemed
     }
+    
 }
