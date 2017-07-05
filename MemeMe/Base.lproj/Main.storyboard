@@ -97,11 +97,13 @@
                     </view>
                     <connections>
                         <outlet property="buttomTextField" destination="aZj-rO-Naj" id="06Z-z3-RiD"/>
+                        <outlet property="buttomToolBar" destination="Wlk-ij-vdS" id="wfz-pz-Fda"/>
                         <outlet property="cameraButton" destination="W15-IF-xq6" id="1sU-01-j0c"/>
                         <outlet property="galleryButton" destination="b02-Fc-PKc" id="LFi-Sn-6b9"/>
                         <outlet property="imagePickerView" destination="eih-8g-ORR" id="40U-XG-D5o"/>
                         <outlet property="shareMemeButton" destination="Uwo-Hm-sDP" id="20j-sB-gZ9"/>
                         <outlet property="topTextField" destination="eb7-RU-xF9" id="6EJ-Xf-QUC"/>
+                        <outlet property="topToolBar" destination="4uS-yA-aoO" id="0Dt-VL-CZC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
