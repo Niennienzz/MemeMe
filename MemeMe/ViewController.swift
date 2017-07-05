@@ -60,14 +60,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSStrokeWidthAttributeName: 3.0,
         ]
         self.topTextField.delegate = self.textFieldDelegate
+        self.topTextField.defaultTextAttributes = memeTextAttributes
         self.topTextField.text = "TOP"
         self.topTextField.textAlignment = .center
-        self.topTextField.defaultTextAttributes = memeTextAttributes
         
         self.buttomTextField.delegate = self.textFieldDelegate
+        self.buttomTextField.defaultTextAttributes = memeTextAttributes
         self.buttomTextField.text = "BUTTOM"
         self.buttomTextField.textAlignment = .center
-        self.buttomTextField.defaultTextAttributes = memeTextAttributes
     }
     
     func initToolbars() {
