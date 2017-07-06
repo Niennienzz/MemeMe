@@ -54,6 +54,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         keyboardMoveListener.unsubscribe()
     }
     
+    // MARK: UIViewController Helpers
+    
     func initTextFields() {
         let memeTextAttributes:[String:Any] = [
             NSStrokeColorAttributeName: UIColor.black,
@@ -61,15 +63,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName: -2.0,
         ]
-        topTextField.delegate = textFieldDelegate
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.text = "TOP"
-        topTextField.textAlignment = .center
-        
-        buttomTextField.delegate = textFieldDelegate
-        buttomTextField.defaultTextAttributes = memeTextAttributes
-        buttomTextField.text = "BUTTOM"
-        buttomTextField.textAlignment = .center
+
+        configTextFiels(topTextField, "TOP", memeTextAttributes)
+        configTextFiels(buttomTextField, "BUTTOM", memeTextAttributes)
+    }
+    
+    func configTextFiels(_ textField: UITextField, _ text: String, _ defaultAttributes: [String:Any]) {
+        textField.delegate = textFieldDelegate
+        textField.defaultTextAttributes = defaultAttributes
+        textField.text = text
+        textField.textAlignment = .center
     }
     
     func initToolbars() {
@@ -92,8 +95,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(_ sender: Any) {
-        let image = save()
+        let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        controller.completionWithItemsHandler = {
+            (_, successful, _, _) in
+            if successful {
+                self.save()
+            }
+        }
         present(controller, animated: true, completion: nil)
     }
     
@@ -118,23 +127,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: Meme Generating Helpers
     
     func generateMemedImage() -> UIImage {
-        topToolBar.isHidden = true
-        buttomToolBar.isHidden = true
+        configBars(hidden: true)
         
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        topToolBar.isHidden = false
-        buttomToolBar.isHidden = false
+        configBars(hidden: false)
         
         return memedImage
     }
     
-    func save() -> UIImage {
-        let meme = Meme(textTop: topTextField.text!, textBottom: buttomTextField.text!, imageOriginal: imagePickerView.image!, imageMemed: generateMemedImage())
-        return meme.imageMemed
+    func configBars(hidden: Bool) {
+        topToolBar.isHidden = hidden
+        buttomToolBar.isHidden = hidden
+    }
+    
+    func save() {
+        _ = Meme(
+            textTop: topTextField.text!,
+            textBottom: buttomTextField.text!,
+            imageOriginal: imagePickerView.image!,
+            imageMemed: generateMemedImage()
+        )
     }
     
 }

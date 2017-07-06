@@ -52,7 +52,7 @@ class KeyboardMoveListener: NSObject {
     }
     
     func UIKeyboardWillHide(_ notification: NSNotification) {
-        view!.frame.origin.y = 0
+        view?.frame.origin.y = 0
     }
     
 }
