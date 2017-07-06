@@ -40,13 +40,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         // image picker
-        self.imagePicker.delegate = self
+        imagePicker.delegate = self
         
         // text fields
-        self.initTextFields()
+        initTextFields()
         
         // buttons
-        self.initToolbars()
+        initToolbars()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,15 +61,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName: -2.0,
         ]
-        self.topTextField.delegate = self.textFieldDelegate
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.topTextField.text = "TOP"
-        self.topTextField.textAlignment = .center
+        topTextField.delegate = textFieldDelegate
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.text = "TOP"
+        topTextField.textAlignment = .center
         
-        self.buttomTextField.delegate = self.textFieldDelegate
-        self.buttomTextField.defaultTextAttributes = memeTextAttributes
-        self.buttomTextField.text = "BUTTOM"
-        self.buttomTextField.textAlignment = .center
+        buttomTextField.delegate = textFieldDelegate
+        buttomTextField.defaultTextAttributes = memeTextAttributes
+        buttomTextField.text = "BUTTOM"
+        buttomTextField.textAlignment = .center
     }
     
     func initToolbars() {
@@ -82,13 +82,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: Actions
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        self.imagePicker.sourceType = .photoLibrary
-        present(self.imagePicker, animated: true, completion: nil)
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        self.imagePicker.sourceType = .camera
-        present(self.imagePicker, animated: true, completion: nil)
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func shareMeme(_ sender: Any) {
@@ -102,8 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.contentMode = .scaleAspectFit
-            self.imagePickerView.image = pickedImage
+            imagePickerView.contentMode = .scaleAspectFit
+            imagePickerView.image = pickedImage
         }
         shareMemeButton.isEnabled = true
         dismiss(animated: true, completion: nil)
@@ -118,16 +118,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: Meme Generating Helpers
     
     func generateMemedImage() -> UIImage {
-        self.topToolBar.isHidden = true
-        self.buttomToolBar.isHidden = true
+        topToolBar.isHidden = true
+        buttomToolBar.isHidden = true
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        self.topToolBar.isHidden = false
-        self.buttomToolBar.isHidden = false
+        topToolBar.isHidden = false
+        buttomToolBar.isHidden = false
         
         return memedImage
     }

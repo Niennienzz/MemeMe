@@ -13,7 +13,7 @@ class KeyboardMoveListener: NSObject {
     
     // MARK: Fields
     
-    var view: UIView?
+    weak var view: UIView?
     var elements: [UIResponder] = []
     let notificationCenter = NotificationCenter.default
     
@@ -39,7 +39,7 @@ class KeyboardMoveListener: NSObject {
     func keyboardWillShow(_ notification:Notification) {
         for element in elements {
             if element.isFirstResponder {
-                view!.frame.origin.y -= getKeyboardHeight(notification)
+                view?.frame.origin.y = -getKeyboardHeight(notification)
                 return
             }
         }
