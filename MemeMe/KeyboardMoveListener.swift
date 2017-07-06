@@ -24,8 +24,8 @@ class KeyboardMoveListener: NSObject {
         self.view = view
         self.elements = elements
         
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: .UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: .UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(UIKeyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     func unsubscribe() {
@@ -36,16 +36,22 @@ class KeyboardMoveListener: NSObject {
     
     // MARK: Keyboard
     
-    func keyboardWillAppear(_ notification: NSNotification) {
+    func keyboardWillShow(_ notification:Notification) {
         for element in elements {
             if element.isFirstResponder {
-                view!.frame.origin.y = 0 - (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+                view!.frame.origin.y -= getKeyboardHeight(notification)
                 return
             }
         }
     }
     
-    func keyboardWillDisappear(_ notification: NSNotification) {
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func UIKeyboardWillHide(_ notification: NSNotification) {
         view!.frame.origin.y = 0
     }
     
