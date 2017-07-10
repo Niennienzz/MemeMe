@@ -145,12 +145,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func save() {
-        _ = Meme(
+        let meme = Meme(
             textTop: topTextField.text!,
             textBottom: buttomTextField.text!,
             imageOriginal: imagePickerView.image!,
             imageMemed: generateMemedImage()
         )
+        
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
 }
