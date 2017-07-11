@@ -101,6 +101,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             (_, successful, _, _) in
             if successful {
                 self.save()
+                self.dismiss(animated: true, completion: nil)
             }
         }
         present(controller, animated: true, completion: nil)

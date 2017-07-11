@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BeN-VT-A45" id="lNE-Kr-lwh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -67,7 +67,9 @@
                             <outlet property="delegate" destination="tCH-jd-XSl" id="WWB-lz-E1t"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JMB-f8-ie4"/>
+                    <navigationItem key="navigationItem" id="JMB-f8-ie4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UUh-Gp-Vmp"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Na6-N4-jxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +121,9 @@
                             <outlet property="delegate" destination="Vgx-vm-dxF" id="PRB-W8-FhT"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="huN-I7-JoP"/>
+                    <navigationItem key="navigationItem" id="huN-I7-JoP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="OAx-hK-6D4"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORv-X2-sTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
