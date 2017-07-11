@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let imagePicker = UIImagePickerController()
     let textFieldDelegate = TextFieldDelegate()
     let keyboardMoveListener = KeyboardMoveListener()
+    var memes: [Meme]!
 
     
     // MARK: Outlets
@@ -47,12 +48,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // buttons
         initToolbars()
+        
+        // saved memes
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        memes = appDelegate.memes
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         keyboardMoveListener.unsubscribe()
     }
+    
     
     // MARK: UIViewController Helpers
     
@@ -65,7 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ]
 
         configTextFiels(topTextField, "TOP", memeTextAttributes)
-        configTextFiels(buttomTextField, "BUTTOM", memeTextAttributes)
+        configTextFiels(buttomTextField, "BOTTOM", memeTextAttributes)
     }
     
     func configTextFiels(_ textField: UITextField, _ text: String, _ defaultAttributes: [String:Any]) {
@@ -153,7 +159,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imageMemed: generateMemedImage()
         )
         
-        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        memes.append(meme)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes = memes
     }
     
 }

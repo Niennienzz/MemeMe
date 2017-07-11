@@ -2,4 +2,69 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe/AppDelegate.swift"
+            timestampString = "521438781.111647"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe.AppDelegate.memes.getter : Swift.Array&lt;MemeMe.Meme&gt;"
+                  moduleName = "MemeMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhehui/workspace/ios/Nanodegree/03_UIKit/MemeMe/MemeMe/AppDelegate.swift"
+                  timestampString = "521438781.821263"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe.AppDelegate.memes.setter : Swift.Array&lt;MemeMe.Meme&gt;"
+                  moduleName = "MemeMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhehui/workspace/ios/Nanodegree/03_UIKit/MemeMe/MemeMe/AppDelegate.swift"
+                  timestampString = "521438781.824635"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe.AppDelegate.init () -&gt; MemeMe.AppDelegate"
+                  moduleName = "MemeMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhehui/workspace/ios/Nanodegree/03_UIKit/MemeMe/MemeMe/AppDelegate.swift"
+                  timestampString = "521438781.8259"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
